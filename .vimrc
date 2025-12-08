@@ -28,10 +28,14 @@ set foldenable
 set foldmethod=indent
 set foldlevel=99
 
+ " Map leader
+let mapleader = ","
+let maplocalleader = ","
+
 " Etc
 set clipboard=unnamedplus
 set updatetime=200
-let mapleader = ","   " ,를 Leader로 설정
+
 
 
 " ------------------------------------------------------------------
@@ -55,6 +59,8 @@ Plug 'vim-syntastic/syntastic'
 
 call plug#end()
 
+filetype plugin indent on
+syntax on
 
 " ------------------------------------------------------------------
 " Key mapping
@@ -102,4 +108,4 @@ nnoremap <C-p> 5<C-y>
 vnoremap <C-p> 5<C-y>
 
 " 플러그인 단축키
-nnoremap <leader>j :NERDTreeToggle<CR>
+nnoremap <leader>h :NERDTreeToggle<CR>
