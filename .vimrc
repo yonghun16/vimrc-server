@@ -33,7 +33,6 @@ set clipboard=unnamedplus
 set updatetime=200
 let mapleader = ","   " ,를 Leader로 설정
 
-
 " ------------------------------------------------------------------
 " Plugins
 " ------------------------------------------------------------------
@@ -47,14 +46,24 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-" 여기에 플러그인 나열
-Plug 'preservim/nerdtree'
-Plug 'jiangmiao/auto-pairs'
-Plug 'farmergreg/vim-lastplace'
-Plug 'vim-syntastic/syntastic'
+Plug 'preservim/nerdtree'               " 파일 탐색기
+Plug 'vim-syntastic/syntastic'          " 문법 검사
+Plug 'jiangmiao/auto-pairs'             " 괄호 자동 완성
+Plug 'farmergreg/vim-lastplace'         " 마지막 커서 위치 기억
+Plug 'itchyny/vim-cursorword'           " 커서 하이라이트
+Plug 'tpope/vim-commentary'             " 주석 토글
 
 call plug#end()
+syntax enable
 
+" vim-syntastic
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+let g:syntastic_enable_signs = 1
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '⚠'
 
 " ------------------------------------------------------------------
 " Key mapping
@@ -102,4 +111,6 @@ nnoremap <C-p> 5<C-y>
 vnoremap <C-p> 5<C-y>
 
 " 플러그인 단축키
-nnoremap <leader>j :NERDTreeToggle<CR>
+nnoremap <leader>h :NERDTreeToggle<CR>
+nnoremap <leader>/ <Plug>CommentaryLine
+vnoremap <leader>/ <Plug>Commentary
